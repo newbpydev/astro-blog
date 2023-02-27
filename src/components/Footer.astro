@@ -1,0 +1,54 @@
+---
+import Social from "./Social.astro";
+
+const platform = "github";
+const username = "newbpydev";
+
+interface Platform {
+  platform: string;
+  username: string;
+}
+
+const platforms: Platform[] = [
+  {
+    platform: "github",
+    username: "newbpydev",
+  },
+  {
+    platform: "instagram",
+    username: "newbpydev",
+  },
+  {
+    platform: "twitter",
+    username: "Newb_PyDev",
+  },
+];
+---
+
+<footer>
+  <p>
+    Learn more about my projects on <a
+      href={`https://www.${platform}.com/${username}`}>{platform}</a
+    >
+  </p>
+  {
+    platforms.map((platform) => {
+      return (
+        <Social platform={platform.platform} username={platform.username} />
+        // <a href={`https://www.${platform.platform}.com/${platform.username}`}>
+        //   {platform.platform}
+        // </a>
+      );
+    })
+  }
+  <!-- <a
+      href={`https://www.${platform}.com/${username}`}>{platform}</a> -->
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
